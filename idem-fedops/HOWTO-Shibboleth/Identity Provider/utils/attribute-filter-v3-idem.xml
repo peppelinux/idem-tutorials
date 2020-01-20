@@ -7,14 +7,23 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="urn:mace:shibboleth:2.0:afp http://shibboleth.net/schema/idp/shibboleth-afp.xsd">
 
-    <!-- Rilascia ePTId e ePSA a chiunque in IDEM -->
+    <!-- Rilascia ePTId e ePSA a chiunque -->
     <AttributeFilterPolicy id="attributesToAnyone">
-        <PolicyRequirementRule xsi:type="RegistrationAuthority" registrars="http://www.idem.garr.it/"/>
+        <PolicyRequirementRule xsi:type="ANY"/>
         <AttributeRule attributeID="eduPersonTargetedID">
             <PermitValueRule xsi:type="ANY"/>
         </AttributeRule>
         <AttributeRule attributeID="eduPersonScopedAffiliation">
             <PermitValueRule xsi:type="ANY"/>
+        </AttributeRule>
+        <AttributeRule attributeID="schacHomeOrganization">
+            <PermitValueRule xsi:type="AttributeInMetadata" onlyIfRequired="true" />
+        </AttributeRule>
+        <AttributeRule attributeID="eduPersonPrincipalName">
+            <PermitValueRule xsi:type="AttributeInMetadata" onlyIfRequired="true" />
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="AttributeInMetadata" onlyIfRequired="true" />
         </AttributeRule>
     </AttributeFilterPolicy>
 
